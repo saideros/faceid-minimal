@@ -37,18 +37,18 @@ app = FastAPI(
 
 
 class EmpleadoAdd(BaseModel):
-    nombre: str = Field(..., example="Santiago Said")
-    numero_empleado: str = Field(..., example="PS00501")
+    nombre: str = Field(..., example="Juan Perez")
+    numero_empleado: str = Field(..., example="EMP001")
     foto_base64: str = Field(..., description="Imagen del rostro en formato Base64")
 
 
 class EmpleadoNum(BaseModel):
-    numero_empleado: str = Field(..., example="PS00501")
+    numero_empleado: str = Field(..., example="EMP001")
 
 
 class EmpleadoComparar(BaseModel):
     foto_base64: str = Field(..., description="Imagen del rostro en formato Base64")
-    numero_empleado: Optional[str] = Field(None, example="PS00501")
+    numero_empleado: Optional[str] = Field(None, example="EMP001")
 
 
 class MsgResponse(BaseModel):
@@ -57,8 +57,8 @@ class MsgResponse(BaseModel):
 
 
 class MatchItem(BaseModel):
-    numero_empleado: str = Field(..., example="PS00501")
-    empleado: str = Field(..., example="Santiago Said")
+    numero_empleado: str = Field(..., example="EMP001")
+    empleado: str = Field(..., example="Juan Perez")
     similitud: float = Field(
         ..., description="Porcentaje de similitud con el rostro comparado", example=98.75
     )
@@ -234,3 +234,4 @@ async def health():
     Verifica que la API esté funcionando correctamente.
     """
     return {"status": "success", "mensaje": "ok"}
+
